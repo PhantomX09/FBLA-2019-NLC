@@ -1,0 +1,130 @@
+class Application():
+    # Code for Window Initialization and Tab Control here
+
+    ##################################################
+    # Add Entry Tab
+    
+    # Create labels for each entry
+    student_id_text = Label(text = 'Student ID*: ', font = ('Times New Roman','10'))
+    firstname_text = Label(text = 'First Name*: ', font = ('Times New Roman','10'))
+    middlename_text = Label(text = 'Middle Name (optional): ', font = ('Times New Roman','10'))
+    lastname_text = Label(text = 'Last Name*: ', font = ('Times New Roman','10'))
+    grade_text = Label(text = 'Grade*: ', font = ('Times New Roman','10'))
+    gender_text = Label(text = 'Gender*: ', font = ('Times New Roman','10'))
+    dob_text = Label(text = 'Date of Birth (DD-MM-YYYY)*: ', font = ('Times New Roman','10'))
+    prog_cat_label = Label(text = "Student Award*", font = ('Times New Roman','10'))
+    making_sure = Label(text = "Fill in the space below if the student has completed some hours.", font = ('Times New Roman','10'))
+    hours_worked_label = Label(text = "Hours the student worked: ", font = ('Times New Roman','10'))
+    cs_name_label = Label(text = "Name of where the student last worked: ", font = ('Times New Roman','10'))
+    cs_addr_label = Label(text = "Address of where the student last worked: ", font = ('Times New Roman','10'))
+    cs_city_label = Label(text = "City where the student worked: ", font = ('Times New Roman','10'))
+    zipcode_label = Label(text = "Zipcode where the student worked: ", font = ('Times New Roman','10'))
+    county_label = Label(text = "County of Residence: ", font = ('Times New Roman','10'))
+    country_label = Label(text = "Country of Residence: ", font = ('Times New Roman','10'))
+    cs_contact_label = Label(text = "Contact name of who the student worked for: ", font = ('Times New Roman','10'))
+    work_phone_label = Label(text = "Work phone number of the contact: ", font = ('Times New Roman','10'))
+    cell_phone_label = Label(text = "Cell phone number of the contact: ", font = ('Times New Roman','10'))
+    email_label = Label(text = "Email of the contact: ", font = ('Times New Roman','10'))
+    
+    # Place and configure each label
+    student_id_text.place(in_ = add_entry, x = 15, y = 20)
+    firstname_text.place(in_ = add_entry, x = 15, y = 70)
+    middlename_text.place(in_ = add_entry, x = 15, y = 120)
+    lastname_text.place(in_ = add_entry, x = 15, y = 170)
+    grade_text.place(in_ = add_entry, x = 15, y = 220)
+    gender_text.place(in_ = add_entry, x = 15, y = 280)
+    prog_cat_label.place(in_ = add_entry, x = 15, y = 350)
+    dob_text.place(in_ = add_entry, x = 15, y = 420)
+    #######################################################
+    making_sure.place(in_ = add_entry, x = 200, y = 20)
+    hours_worked_label.place(in_ = add_entry, x = 200, y = 70)
+    cs_name_label.place(in_ = add_entry, x = 200, y = 120)
+    cs_addr_label.place(in_ = add_entry, x = 200, y = 170)
+    #########################################################
+    cs_city_label.place(in_ = add_entry, x = 200, y = 220)
+    zipcode_label.place(in_ = add_entry, x = 200, y = 280)
+    county_label.place(in_ = add_entry, x = 200, y = 350)
+    ########################################################
+    country_label.place(in_ = add_entry, x = 15, y = 685)
+    work_phone_label.place(in_ = add_entry, x = 400, y = 445)
+    cell_phone_label.place(in_ = add_entry, x = 400, y = 485)
+    cs_contact_label.place(in_ = add_entry, x = 400, y = 525)
+    email_label.place(in_ = add_entry,x = 400, y = 565)
+    
+    # Initialize each variable
+    global student_id, firstname, middlename, lastname, grade, gender, prog_cat
+    global cs_name, cs_addr, cs_contact, city, zipcode, county, country, hours_worked, work_phone, cell_phone, email
+    global dob
+    student_id = StringVar()
+    firstname = StringVar()
+    middlename = StringVar()
+    lastname = StringVar()
+    grade = IntVar()
+    gender = IntVar()
+    prog_cat = StringVar()
+    cs_name = StringVar()
+    cs_addr = StringVar()
+    cs_contact = StringVar()
+    city = StringVar()
+    zipcode = IntVar()
+    county = StringVar()
+    country = StringVar()
+    hours_worked = StringVar()
+    work_phone = StringVar()
+    cell_phone = StringVar()
+    email = StringVar()
+    dob = StringVar()
+    
+    # Create and configure each entry variable
+    global student_id_entry, firstname_entry, middlename_entry, lastname_entry
+    student_id_entry = Entry(textvariable = student_id, width = "15", font = ('Times New Roman','10'))
+    firstname_entry = Entry(textvariable = firstname, width = "15", font = ('Times New Roman','10'))
+    middlename_entry = Entry(textvariable = middlename, width = "15", font = ('Times New Roman','10'))
+    lastname_entry = Entry(textvariable = lastname, width = "15", font = ('Times New Roman','10'))
+    grade_entry = OptionMenu(app, grade, *GradeList)
+    grade_entry.config(width=8)
+    gender_m_entry = Radiobutton(app, text = "Male", variable = gender, value = 1)
+    gender_f_entry = Radiobutton(app, text = "Female", variable = gender, value = 2)
+    prog_cat_entry = OptionMenu(app, prog_cat, *AwardList) 
+    prog_cat_entry.config(width=8)
+    hours_worked_entry = Entry(textvariable = hours_worked, width = "15", font = ('Times New Roman', '10'))
+    cs_name_entry = Entry(textvariable = cs_name, width = "15", font = ('Times New Roman', '10'))
+    cs_addr_entry = Entry(textvariable = cs_addr, width = "15", font = ('Times New Roman', '10'))
+    cs_contact_entry = Entry(textvariable = cs_contact, width = "15", font = ('Times New Roman', '10'))
+    city_entry = Entry(textvariable = city, width = "15", font = ('Times New Roman', '10'))
+    zipcode_entry = Entry(textvariable = zipcode, width = "15", font = ('Times New Roman', '10'))
+    county_entry = Entry(textvariable = county, width = "15", font = ('Times New Roman', '10'))
+    country_entry = Entry(textvariable = country, width = "15", font = ('Times New Roman', '10'))
+    work_phone_entry = Entry(textvariable = work_phone, width = "15", font = ('Times New Roman', '10'))
+    cell_phone_entry = Entry(textvariable = cell_phone, width = "15", font = ('Times New Roman', '10'))
+    email_entry = Entry(textvariable = email, width = "15", font = ('Times New Roman', '10'))
+    dob_entry = Entry(textvariable = dob, width="15", font = ('Times New Roman','10'))
+    
+    # Place each entry variable
+    student_id_entry.place(in_ = add_entry, x = 20, y = 40)
+    firstname_entry.place(in_ = add_entry, x = 20, y = 90)
+    middlename_entry.place(in_ = add_entry, x = 20, y = 140)
+    lastname_entry.place(in_ = add_entry, x = 20, y = 190)
+    grade_entry.place(in_ = add_entry, x = 20, y = 240)
+    gender_m_entry.place(in_ = add_entry, x = 20, y = 300)
+    gender_f_entry.place(in_ = add_entry, x = 20, y = 320)
+    prog_cat_entry.place(in_ = add_entry, x = 20, y = 370)
+    dob_entry.place(in_ = add_entry, x = 20, y = 440)
+    ##################################################
+    hours_worked_entry.place(in_ = add_entry, x = 200, y = 90)
+    cs_name_entry.place(in_ = add_entry, x = 200, y = 140)
+    cs_addr_entry.place(in_ = add_entry,x = 200, y = 190)
+    city_entry.place(in_ = add_entry, x = 200, y = 240)
+    ###################################################
+    zipcode_entry.place(in_ = add_entry, x = 200, y = 310)
+    county_entry.place(in_ = add_entry, x = 200, y = 380)
+    country_entry.place(in_ = add_entry, x = 20, y = 705)
+    work_phone_entry.place(in_ = add_entry, x = 400, y = 465)
+    cell_phone_entry.place(in_ = add_entry, x = 400, y = 505)
+    cs_contact_entry.place(in_ = add_entry,x = 400, y = 545)
+    email_entry.place(in_ = add_entry, x = 400, y = 585)
+    
+    # Create register button
+    register = Button(app, text = "Register", width = "15", height = "2", command = check, bg = "gray", font = ('Times New Roman','10'))
+    register.place(in_ = add_entry, x = 400, y = 630)
+

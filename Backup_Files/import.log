@@ -1,0 +1,41 @@
+;;; 
+Import: Release 19.0.0.0.0 - Production on Tue Feb 4 22:31:42 2020
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Connected to: Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Master table "FBLA_CSA"."SYS_IMPORT_SCHEMA_01" successfully loaded/unloaded
+Starting "FBLA_CSA"."SYS_IMPORT_SCHEMA_01":  fbla_csa/******** directory=fbla_backup dumpfile=fbla_csa.dmp schemas=fbla_csa TABLE_EXISTS_ACTION=APPEND 
+Processing object type SCHEMA_EXPORT/USER
+ORA-31684: Object type USER:"FBLA_CSA" already exists
+Processing object type SCHEMA_EXPORT/SYSTEM_GRANT
+Processing object type SCHEMA_EXPORT/ROLE_GRANT
+Processing object type SCHEMA_EXPORT/DEFAULT_ROLE
+Processing object type SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processing object type SCHEMA_EXPORT/TABLE/TABLE
+Table "FBLA_CSA"."TEACHER" exists. Data will be appended to existing table but all dependent metadata will be skipped due to table_exists_action of append
+Table "FBLA_CSA"."CSA_HOUR" exists. Data will be appended to existing table but all dependent metadata will be skipped due to table_exists_action of append
+Table "FBLA_CSA"."COMMUNITY_SERVICE" exists. Data will be appended to existing table but all dependent metadata will be skipped due to table_exists_action of append
+Table "FBLA_CSA"."PROGRAM_CATEGORY" exists. Data will be appended to existing table but all dependent metadata will be skipped due to table_exists_action of append
+Table "FBLA_CSA"."AWARD_DETAIL" exists. Data will be appended to existing table but all dependent metadata will be skipped due to table_exists_action of append
+Table "FBLA_CSA"."STUDENT" exists. Data will be appended to existing table but all dependent metadata will be skipped due to table_exists_action of append
+Table "FBLA_CSA"."CHAPTER" exists. Data will be appended to existing table but all dependent metadata will be skipped due to table_exists_action of append
+Processing object type SCHEMA_EXPORT/TABLE/TABLE_DATA
+. . imported "FBLA_CSA"."COMMUNITY_SERVICE"              10.45 KB       5 rows
+. . imported "FBLA_CSA"."STUDENT"                        8.835 KB       4 rows
+ORA-31693: Table data object "FBLA_CSA"."CHAPTER" failed to load/unload and is being skipped due to error:
+ORA-00001: unique constraint (FBLA_CSA.SYS_C007625) violated
+. . imported "FBLA_CSA"."CSA_HOUR"                       7.515 KB       3 rows
+ORA-31693: Table data object "FBLA_CSA"."TEACHER" failed to load/unload and is being skipped due to error:
+ORA-00001: unique constraint (FBLA_CSA.SYS_C007680) violated
+. . imported "FBLA_CSA"."AWARD_DETAIL"                   6.539 KB       3 rows
+ORA-31693: Table data object "FBLA_CSA"."PROGRAM_CATEGORY" failed to load/unload and is being skipped due to error:
+ORA-00001: unique constraint (FBLA_CSA.SYS_C007655) violated
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS
+Processing object type SCHEMA_EXPORT/STATISTICS/MARKER
+Job "FBLA_CSA"."SYS_IMPORT_SCHEMA_01" completed with 4 error(s) at Tue Feb 4 22:32:08 2020 elapsed 0 00:00:22

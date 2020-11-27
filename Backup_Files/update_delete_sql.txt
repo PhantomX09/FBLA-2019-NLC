@@ -1,0 +1,8 @@
+update community_service
+set address ='3720 Dinosaur St'
+where community_service_id=9;
+COMMIT;
+
+DELETE FROM community_service 
+where community_service_id = 10;
+COMMIT;

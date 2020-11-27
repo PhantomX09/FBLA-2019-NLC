@@ -1,0 +1,41 @@
+class Application():
+    # Code for Window Initialization and Tab Controls Here
+    # Code for Add Entry Tab Here
+          #################################################
+    # Modify Entry Tab
+
+    # Create labels 
+    sort_by_text = Label(text = 'Sort by:', font = ('Times New Roman','10'))
+    
+    # Place labels
+    sort_by_text.place(in_ = modify_entry, x = 15, y = 30)
+
+    # Create Delete and Entry Buttons
+    delete_entry = Button(app, text = 'Delete Entry', width = "15", height = '2', command = delete, bg = 'gray', font = ('Times New Roman','10'))
+    edit_entry = Button(app, text = 'Edit Entry', width = '15', height = '2', command = edit, bg = 'gray', font = ('Times New Roman','10'))
+    search_entries = Button(app, text = 'Search Entries', width = '15', height = '2', command = search_entries, bg = 'gray', font = ('Times New Roman','10'))
+                        
+    # Place Delete, Search, and Entry Buttons
+    search_entries.place(in_ = modify_entry, x = 15, y = 150)
+    delete_entry.place(in_ = modify_entry, x = 15, y = 250)
+    edit_entry.place(in_ = modify_entry, x = 15, y = 350)
+    
+    # Create checkbox variables to specify how the application will query the database
+    name_sort = IntVar()
+    grade_sort = IntVar()
+    gender_sort = IntVar()
+    student_id_sort = IntVar()
+
+    # Create checkbox entry variables
+    name_sort_entry = Checkbutton(app, text="Name", variable=name_sort, onvalue = 1, offvalue = 0, font = ('Times New Roman','10'))
+    grade_sort_entry = Checkbutton(app, text="Grade", variable=grade_sort, onvalue = 1, offvalue = 0, font = ('Times New Roman','10'))
+    gender_sort_entry = Checkbutton(app, text="Gender", variable=gender_sort, onvalue = 1, offvalue = 0, font = ('Times New Roman','10'))
+    student_id_sort_entry = Checkbutton(app, text="Student ID", variable=student_id_sort,  onvalue = 1, offvalue = 0, font = ('Times New Roman','10'))
+
+    # Place checkbox entry variables
+    name_sort_entry.place(in_ = modify_entry, x = 15, y = 60)
+    grade_sort_entry.place(in_ = modify_entry, x = 15, y = 80)
+    gender_sort_entry.place(in_ = modify_entry, x = 15, y = 100)
+    student_id_sort_entry.place(in_ = modify_entry, x = 15, y = 120)
+
+    

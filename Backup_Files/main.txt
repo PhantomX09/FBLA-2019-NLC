@@ -1,0 +1,25 @@
+# Code from app_functions.txt begins here
+
+class Application():
+    
+    #Lists
+    GradeList = [9,10,11,12]
+    AwardList = ["No Award", "CSA Community", "CSA Service", "CSA Achievement"]
+    
+    # Initialize the window and set its properties
+    app = Tk()
+    app.geometry('650x880')
+    app.title('FBLA Community Service Awards Registration')
+
+    # Create tabs
+    tabControl = ttk.Notebook(app)
+    add_entry = ttk.Frame(tabControl)
+    tabControl.add(add_entry, text = 'Add Entry')
+    tabControl.pack(expand=1, fill='both')
+
+    modify_entry = ttk.Frame(tabControl)
+    tabControl.add(modify_entry, text = 'Modify Entry')
+    tabControl.pack(expand=1, fill='both')
+
+# Code from add_entry_tab.txt begins here
+# Code from modify_entry_tab.txt begins here

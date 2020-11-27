@@ -1,0 +1,34 @@
+;;; 
+Export: Release 19.0.0.0.0 - Production on Wed Feb 5 08:53:41 2020
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Connected to: Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Starting "FBLA_CSA"."SYS_EXPORT_SCHEMA_01":  fbla_csa/******** directory=fbla_backup dumpfile=fbla_csa.dmp schemas=fbla_csa reuse_dumpfiles=YES 
+Processing object type SCHEMA_EXPORT/TABLE/TABLE_DATA
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS
+Processing object type SCHEMA_EXPORT/STATISTICS/MARKER
+Processing object type SCHEMA_EXPORT/USER
+Processing object type SCHEMA_EXPORT/SYSTEM_GRANT
+Processing object type SCHEMA_EXPORT/ROLE_GRANT
+Processing object type SCHEMA_EXPORT/DEFAULT_ROLE
+Processing object type SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processing object type SCHEMA_EXPORT/TABLE/TABLE
+Processing object type SCHEMA_EXPORT/TABLE/COMMENT
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+. . exported "FBLA_CSA"."COMMUNITY_SERVICE"              10.49 KB       4 rows
+. . exported "FBLA_CSA"."STUDENT"                        8.851 KB       4 rows
+. . exported "FBLA_CSA"."CHAPTER"                        7.765 KB       1 rows
+. . exported "FBLA_CSA"."CSA_HOUR"                       7.507 KB       3 rows
+. . exported "FBLA_CSA"."TEACHER"                        6.875 KB       1 rows
+. . exported "FBLA_CSA"."AWARD_DETAIL"                   6.523 KB       2 rows
+. . exported "FBLA_CSA"."PROGRAM_CATEGORY"               6.109 KB       4 rows
+Master table "FBLA_CSA"."SYS_EXPORT_SCHEMA_01" successfully loaded/unloaded
+******************************************************************************
+Dump file set for FBLA_CSA.SYS_EXPORT_SCHEMA_01 is:
+  D:\PYTHON_FILES\FBLA_MAIN\FBLA_CSA.DMP
+Job "FBLA_CSA"."SYS_EXPORT_SCHEMA_01" successfully completed at Wed Feb 5 08:54:52 2020 elapsed 0 00:01:09

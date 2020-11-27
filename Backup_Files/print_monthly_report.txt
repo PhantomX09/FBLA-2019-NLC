@@ -1,0 +1,46 @@
+def month_report():
+   destroy_all()
+
+   def create_report():
+      document = Document()
+
+      document.add_heading('FBLA Community Service Awards Monthly Report',0)
+
+      conn = cx_Oracle.connect(connstr)
+      curs = conn.cursor()
+      curs.execute('select * from student')
+      result1 = curs.fetchall()
+      result2 = list(itertools.chain(result1))
+      
+      table = document.add_table(rows=1, cols=9)
+      hdr_cells = table.rows[0].cells
+      hdr_cells[0].text = 'ID'
+      hdr_cells[1].text = 'First Name'
+      hdr_cells[2].text = 'Middle Name'
+      hdr_cells[3].text = 'Last Name'
+      hdr_cells[4].text = 'Grade'
+      hdr_cells[5].text = 'School Name'
+      hdr_cells[6].text = 'Chapter ID'
+      hdr_cells[7].text = 'Gender'
+      hdr_cells[8].text = 'Date of Birth'
+
+      for qty, id, desc, lname, grade, school, cid, gender, dob in result2:
+          row_cells = table.add_row().cells
+          row_cells[0].text = str(qty)
+          row_cells[1].text = id
+          row_cells[2].text = str(desc)
+          row_cells[3].text = lname
+          row_cells[4].text = str(grade)
+          row_cells[5].text = school
+          row_cells[6].text = str(cid)
+          row_cells[7].text = gender
+          row_cells[8].text = str(dob)
+
+      document.add_page_break()
+
+      document.save('fbla-csa-monthly-report-2020.docx')
+
+   button = Button(root,text='Create Monthly Report',command=create_report)
+   labels.append(button)
+   button.grid(row=4,column=2)
+

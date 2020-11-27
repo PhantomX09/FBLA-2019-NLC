@@ -1,0 +1,96 @@
+from tkinter import *
+from tkinter import messagebox
+from tkinter import ttk
+import cx_Oracle
+
+# Font Specification
+
+# Database Connection Information
+connstr = 'fbla_csa/fbla_csa@fbladb1'
+
+# Check if all entry types have been filled
+def check():
+    global firstname_info, middlename_info, lastname_info, student_id_info, gender_info, grade_info, has_info
+    global prog_info, hours_worked_info
+    #firstname_e_info
+    #lastname_e_info
+    #middlename_e_info
+    #lastname_e_info
+    #stud_id_e_info = 
+
+    firstname_info = firstname.get()
+    middlename_info = middlename.get()
+    lastname_info = lastname.get()
+    student_id_info = student_id.get()
+    gender_info = gender.get()
+    grade_info = grade.get()
+    prog_cat_info = prog_cat.get()
+
+    global cs_name_info, cs_addr_info, cs_contact_info, city_info, zipcode_info, county_info, country_info, hours_worked_info, work_phone_info, cell_phone_info, email_info, has_info
+    cs_name_info = cs_name.get()
+    cs_addr_info = cs_addr.get()
+    cs_contact_info = cs_contact.get()
+    city_info = city.get()
+    zipcode_info = zipcode.get()
+    county_info = county.get()
+    country_info = country.get()
+    hours_worked_info = hours_worked.get()
+    work_phone_info = work_phone.get()
+    cell_phone_info = cell_phone.get()
+    email_info = email.get()
+    
+    if prog_cat_info == "No Award":
+        has_info = 'No'
+        prog_info = 0
+    if middlename_info == '':
+        middlename_info = 'null'
+    if gender_info == 1:
+        gender_info = 'M'
+    if gender_info == 2:
+        gender_info = 'F'
+    if ("" in (firstname_info, lastname_info, student_id_info)) is True:
+        messagebox.showwarning("Warning","First Name, Last Name, and Student ID both require values!")
+    elif (0 in (grade_info, gender_info, prog_cat_info)) is True:
+        messagebox.showwarning("Warning","Student Grade and Gender Info require values!")
+    else:
+        register()
+        firstname_entry.delete(0, END)
+        middlename_entry.delete(0, END)
+        lastname_entry.delete(0, END)
+        student_id_entry.delete(0, END)
+        
+def register():
+    try:
+        connection = cx_Oracle.connect(connstr)
+        curs = connection.cursor()
+        curs.arraysize=50
+        print('You are now using Oracle Database',connection.version)
+        insert_command = f"INSERT INTO student VALUES ({student_id_info},'{firstname_info}','{middlename_info}','{lastname_info}','{grade_info}','Douglas County High School',1,'{gender_info}','01-JAN-05')"
+        insert_command2 = f"INSERT INTO award_detail VALUES (2,{student_id_info},2,'{has_info}')"
+        insert_command3 = f"INSERT INTO csa_hour VALUES (1,{student_id_info},{prog_info},1,{hours_worked_info},'01-JAN-2020')"
+        insert_command4 = f"INSERT INTO community_service VALUES (2,'{cs_name_info}','{cs_addr_info}','{cs_contact_info}','{cs_addr_info}','{city_info}','{zipcode_info}','{county_info}','{country_info}','{work_phone_info}','{cell_phone_info}','{email_info}')"
+        print(insert_command)
+        print(insert_command2)
+        print(insert_command3)
+        print(insert_command4)        
+        curs.execute(insert_command3)
+        curs.execute(insert_command4)
+        curs.execute(insert_command2)
+        curs.execute(insert_command1)
+        connection.commit()
+    except cx_Oracle.Error as error:
+        print(error)
+    finally:
+        if connection:
+            connection.close()
+
+def delete():
+    pass
+
+def edit():
+    pass
+
+def search_entries():
+    pass
+
+# Code from main module begins here

@@ -1,0 +1,137 @@
+#            global sid_text,fname_text,mname_text,lname_text,grade_text,school_name_text
+#            global chap_id_text,gender_text,dob_text
+#            global sid_entry,fname_entry,mname_entry,lname_entry,school_entry
+#            global chap_id_entry,gender_entry,dob_entry
+
+            widgets = []
+            
+            sid_text = Label(root, text='Student:')
+            labels.append(sid_text)
+            widgets.append(sid_text)
+            sid_text.place(x=100,y=130)
+            
+            fname_text = Label(root, text='First Name:')
+            labels.append(fname_text)
+            widgets.append(fname_text)
+            fname_text.place(x=100,y=180)
+            
+            mname_text = Label(root,text='Middle Name:')
+            labels.append(mname_text)
+            widgets.append(mname_text)
+            mname_text.place(x=100,y=230)
+            
+            lname_text = Label(root,text='Last Name:')
+            labels.append(lname_text)
+            widgets.append(lname_text)
+            lname_text.place(x=100,y=280)
+            
+            grade_text = Label(root,text='Grade:')
+            labels.append(grade_text)
+            widgets.append(grade_text)
+            grade_text.place(x=100,y=330)
+
+            school_name_text = Label(root,text='School Name:')
+            labels.append(school_name_text)
+            widgets.append(school_name_text)
+            school_name_text.place(x=100,y=380)
+
+            chap_id_text = Label(root,text='Chapter ID:')
+            labels.append(chap_id_text)
+            widgets.append(chap_id_text)
+            chap_id_text.place(x=100,y=430)
+
+            gender_text = Label(root,text='Gender:')
+            labels.append(gender_text)
+            widgets.append(gender_text)
+            gender_text.place(x=100,y=480)
+
+            dob_text = Label(root,text='Date of Birth (Example ~ 01-JAN-2000):')
+            labels.append(dob_text)
+            widgets.append(dob_text)
+            dob_text.place(x=100,y=530)
+
+            # Entry Variables
+            global gender2
+            sid2 = IntVar()
+            fname2 = StringVar()
+            mname2 = StringVar()
+            lname2 = StringVar()
+            grade2 = IntVar()
+            school_name2 = StringVar()
+            chap_id2 = IntVar()
+            gender2 = StringVar()
+            dob2 = StringVar()
+            
+            GRADES = [9,10,11,12]
+            GENDER = ['M','F']
+            
+            sid_entry = Entry(textvariable=sid2,width=20)
+            tboxes.append(sid_entry)
+            widgets.append(sid_entry)
+            sid_entry.insert(0,result[0][0])
+            sid_entry.place(x=200,y=130)
+
+            fname_entry = Entry(textvariable=fname2,width=20)
+            tboxes.append(fname_entry)
+            widgets.append(fname_entry)
+            fname_entry.insert(0,result[0][1])
+            fname_entry.place(x=200,y=180)
+
+            mname_entry = Entry(textvariable=mname2,width=20)
+            tboxes.append(mname_entry)
+            widgets.append(mname_entry)
+            #mname_entry.insert(0,result[0][2])
+            print(result[0][2])
+            if result[0][2] == None:
+               mname_entry.insert(0,'')
+            else:
+               mname_entry.insert(0,result[0][2])
+            mname_entry.place(x=200,y=230)
+
+            lname_entry = Entry(textvariable=lname2,width=20)
+            tboxes.append(lname_entry)
+            widgets.append(lname_entry)
+            if result[0][3] == None:
+               lname_entry.insert(0,'')
+            else:
+               lname_entry.insert(0,result[0][3])
+            lname_entry.place(x=200,y=280)
+
+            grade_entry = OptionMenu(root,grade2,*GRADES)
+            tboxes.append(grade_entry)
+            widgets.append(grade_entry)
+            grade_entry.place(x=200,y=330)
+
+            school_entry = Entry(textvariable=school_name2,width=20)
+            tboxes.append(school_entry)
+            widgets.append(school_entry)
+            if result[0][2] == None:
+               school_entry.insert(0,'')
+            else:
+               school_entry.insert(0,result[0][5])
+            school_entry.place(x=200,y=380)
+
+            chap_id_entry = Entry(textvariable=chap_id2,width=20)
+            tboxes.append(chap_id_entry)
+            widgets.append(chap_id_entry)
+            if result[0][2] == None:
+               chap_id_entry.insert(0,'')
+            else:
+               chap_id_entry.insert(0,result[0][6])
+
+            chap_id_entry.place(x=200,y=430)
+
+            gender_entry = OptionMenu(root,gender2,*GENDER)
+            tboxes.append(gender_entry)
+            widgets.append(gender_entry)
+            gender_entry.place(x=200,y=480)
+
+            dob_entry = Entry(textvariable=dob2,width=20)
+            tboxes.append(dob_entry)
+            widgets.append(dob_entry)
+            if result[0][2] == None:
+               dob_entry.insert(0,'')
+            else:
+               dob_entry.insert(0,result[0][8])
+
+            dob_entry.place(x=350,y=530)
